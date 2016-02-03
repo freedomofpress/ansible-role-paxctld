@@ -30,6 +30,7 @@
   template:
     src: paxctld.conf.j2
     dest: /etc/paxctld.conf
+  notify: restart paxctld
 
 - name: Install paxctld deb package.
   become: yes
