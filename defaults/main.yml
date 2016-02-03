@@ -1,5 +1,5 @@
 ---
-download_directory: /root
+download_directory: /usr/local/src
 paxctld_filename: 'paxctld_1.0-4_amd64.deb'
 paxctld_deb_url: 'https://grsecurity.net/paxctld/paxctld_1.0-4_amd64.deb'
 paxctld_sig_url: 'https://grsecurity.net/paxctld/paxctld_1.0-4_amd64.deb.sig'

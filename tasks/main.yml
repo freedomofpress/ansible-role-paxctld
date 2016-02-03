@@ -4,15 +4,6 @@
   register: gpg_import_spender_result
   changed_when: "'imported: 1' in gpg_import_spender_result.stderr"
 
-- name: Install PaX utilities.
-  apt:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - paxctl
-    - paxtest
-    - pax-utils
-
 - name: Fetch paxctld package.
   get_url:
       url: "{{ paxctld_deb_url }}"
