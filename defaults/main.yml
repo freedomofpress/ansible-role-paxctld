@@ -1,0 +1,29 @@
+---
+download_directory: /root
+paxctld_filename: 'paxctld_1.0-4_amd64.deb'
+paxctld_deb_url: 'https://grsecurity.net/paxctld/paxctld_1.0-4_amd64.deb'
+paxctld_sig_url: 'https://grsecurity.net/paxctld/paxctld_1.0-4_amd64.deb.sig'
+gpg_keyserver: hkps.pool.sks-keyservers.net
+
+# PaX flags
+paxctld_configs:
+  - binary: /usr/bin/python2.7
+    flags: m
+  - binary: /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java
+    flags: m
+  - binary: /usr/bin/nodejs
+    flags: m
+  - binary: /usr/bin/node
+    flags: m
+  - binary: /usr/sbin/asterisk
+    flags: m
+  - binary: /opt/kibana/node/bin/node
+    flags: m
+  - binary: /usr/bin/grub-script-check
+    flags: m
+  - binary: /usr/bin/grub-bios-setup
+    flags: m
+  - binary: /usr/sbin/grub-mkdevicemap
+    flags: m
+  - binary: /usr/sbin/grub-probe
+    flags: m

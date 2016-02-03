@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  author: Kevin Gallagher (@ageis)
+  description: Installs paxctld
+  company: Freedom of the Press Foundation (@FreedomofPress)
+  license: MIT
+  min_ansible_version: 1.9.4
+  platforms:
+    - name: Debian
+      versions:
+      - jessie
+  categories:
+    - system
+dependencies: []
