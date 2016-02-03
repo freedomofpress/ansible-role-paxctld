@@ -5,11 +5,13 @@
   changed_when: "'imported: 1' in gpg_import_spender_result.stderr"
 
 - name: Fetch paxctld package.
+  become: yes
   get_url:
       url: "{{ paxctld_deb_url }}"
       dest: "{{ download_directory }}/{{ paxctld_filename }}"
 
 - name: Fetch paxctld package signature.
+  become: yes
   get_url:
       url: "{{ paxctld_sig_url }}"
       dest: "{{ download_directory }}/{{ paxctld_filename }}.sig"
@@ -24,23 +26,27 @@
 # couldn't find a reliable way to make it so the service doesn't start,
 # so we're writing our own configuration before installing the package.
 - name: Write and install paxctld configuration.
+  become: yes
   template:
     src: paxctld.conf.j2
     dest: /etc/paxctld.conf
 
 - name: Install paxctld deb package.
+  become: yes
   apt:
     deb: "{{ download_directory }}/{{ paxctld_filename }}"
     dpkg_options: skip-same-version,force-confdef,force-confold
   when: "'Good signature' in gpg_verify_result.stderr"
-  
+
 - name: Restart paxctld and ensure it is enabled.
+  become: yes
   service:
     name: paxctld
     state: restarted
     enabled: yes
 
 - name: Clean up after install.
+  become: yes
   file:
     path: "{{ download_directory }}/{{ paxctld_filename }}"
     state: absent
