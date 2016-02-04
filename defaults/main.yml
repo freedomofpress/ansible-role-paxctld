@@ -1,8 +1,9 @@
 ---
 download_directory: /usr/local/src
-paxctld_filename: 'paxctld_1.0-4_amd64.deb'
-paxctld_deb_url: 'https://grsecurity.net/paxctld/paxctld_1.0-4_amd64.deb'
-paxctld_sig_url: 'https://grsecurity.net/paxctld/paxctld_1.0-4_amd64.deb.sig'
+paxctld_version: "1.0-4"
+paxctld_filename: "paxctld_{{ paxctld_version }}_amd64.deb"
+paxctld_deb_url: "https://grsecurity.net/paxctld/{{ paxctld_filename }}"
+paxctld_sig_url: "https://grsecurity.net/paxctld/{{ paxctld_filename }}.sig"
 gpg_keyserver: hkps.pool.sks-keyservers.net
 
 # PaX flags

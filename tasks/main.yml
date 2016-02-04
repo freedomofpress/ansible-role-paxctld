@@ -38,6 +38,8 @@
     deb: "{{ download_directory }}/{{ paxctld_filename }}"
     dpkg_options: skip-same-version,force-confdef,force-confold
   when: "'Good signature' in gpg_verify_result.stderr"
+  register: paxctld_install_result
+  changed_when: "'dpkg: version {{ paxctld_version }} of paxctld already installed' not in paxctld_install_result.stderr"
 
 - name: Restart paxctld and ensure it is enabled.
   become: yes
@@ -46,8 +48,3 @@
     state: started
     enabled: yes
 
-- name: Clean up after install.
-  become: yes
-  file:
-    path: "{{ download_directory }}/{{ paxctld_filename }}"
-    state: absent
