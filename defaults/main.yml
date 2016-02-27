@@ -21,10 +21,10 @@ paxctld_configs:
   - binary: /opt/kibana/node/bin/node
     flags: m
   - binary: /usr/bin/grub-script-check
-    flags: m
+    flags: pm
   - binary: /usr/bin/grub-bios-setup
-    flags: m
+    flags: pm
   - binary: /usr/sbin/grub-mkdevicemap
-    flags: m
+    flags: pm
   - binary: /usr/sbin/grub-probe
-    flags: m
+    flags: pm
