@@ -4,4 +4,3 @@
   service:
     name: paxctld
     state: restarted
-

@@ -6,7 +6,9 @@ paxctld_deb_url: "https://grsecurity.net/paxctld/{{ paxctld_filename }}"
 paxctld_sig_url: "https://grsecurity.net/paxctld/{{ paxctld_filename }}.sig"
 gpg_keyserver: hkps.pool.sks-keyservers.net
 
-# PaX flags
+# PaX flags. Override as necessary, but make sure to override the entire list,
+# including items you want to preserve. In particular consider retaining the python
+# config, as it's necessary for Ansible to run.
 paxctld_configs:
   - binary: /usr/bin/python2.7
     flags: m

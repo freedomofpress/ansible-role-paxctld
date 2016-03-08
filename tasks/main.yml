@@ -21,10 +21,9 @@
   register: gpg_verify_result
   changed_when: false
 
-# the default paxctld config only enables EMUTRAP on Python, which will
-# break the Ansible connection when the service runs post-install.
-# couldn't find a reliable way to make it so the service doesn't start,
-# so we're writing our own configuration before installing the package.
+# Write config file prior to installing package, so desired flags are set immediately.
+# At the very least, python will break if you don't do this, making ansible commands
+# fail (except `raw`).
 - name: Write and install paxctld configuration.
   become: yes
   template:
@@ -47,4 +46,3 @@
     name: paxctld
     state: started
     enabled: yes
-
