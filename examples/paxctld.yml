@@ -1,0 +1,6 @@
+---
+- name: Configure grsecurity-patched server.
+  hosts: server
+  roles:
+    - role: ansible-role-paxctld
+      tags: paxctld
