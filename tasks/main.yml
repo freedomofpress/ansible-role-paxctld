@@ -1,6 +1,6 @@
 ---
 - name: Import Bradley Spengler GPG key (grsecurity maintainer) key
-  command: gpg --keyserver {{ gpg_keyserver }} --recv-keys 44D1C0F82525FE49
+  command: gpg --keyserver {{ paxctld_gpg_keyserver }} --recv-keys 44D1C0F82525FE49
   register: gpg_import_spender_result
   changed_when: "'imported: 1' in gpg_import_spender_result.stderr"
 
@@ -8,16 +8,16 @@
   become: yes
   get_url:
       url: "{{ paxctld_deb_url }}"
-      dest: "{{ download_directory }}/{{ paxctld_filename }}"
+      dest: "{{ paxctld_download_directory }}/{{ paxctld_filename }}"
 
 - name: Fetch paxctld package signature.
   become: yes
   get_url:
       url: "{{ paxctld_sig_url }}"
-      dest: "{{ download_directory }}/{{ paxctld_filename }}.sig"
+      dest: "{{ paxctld_download_directory }}/{{ paxctld_filename }}.sig"
 
 - name: Verify paxctld package GPG signature.
-  command: gpg --verify {{ download_directory }}/{{ paxctld_filename }}.sig
+  command: gpg --verify {{ paxctld_download_directory }}/{{ paxctld_filename }}.sig
   register: gpg_verify_result
   changed_when: false
 
@@ -34,7 +34,7 @@
 - name: Install paxctld deb package.
   become: yes
   apt:
-    deb: "{{ download_directory }}/{{ paxctld_filename }}"
+    deb: "{{ paxctld_download_directory }}/{{ paxctld_filename }}"
     dpkg_options: skip-same-version,force-confdef,force-confold
   when: "'Good signature' in gpg_verify_result.stderr"
   register: paxctld_install_result

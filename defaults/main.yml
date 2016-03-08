@@ -1,10 +1,10 @@
 ---
-download_directory: /usr/local/src
+paxctld_download_directory: /usr/local/src
 paxctld_version: "1.1-1"
 paxctld_filename: "paxctld_{{ paxctld_version }}_amd64.deb"
 paxctld_deb_url: "https://grsecurity.net/paxctld/{{ paxctld_filename }}"
 paxctld_sig_url: "https://grsecurity.net/paxctld/{{ paxctld_filename }}.sig"
-gpg_keyserver: hkps.pool.sks-keyservers.net
+paxctld_gpg_keyserver: hkps.pool.sks-keyservers.net
 
 # PaX flags. Override as necessary, but make sure to override the entire list,
 # including items you want to preserve. In particular consider retaining the python
