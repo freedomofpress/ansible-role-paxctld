@@ -16,8 +16,14 @@
       url: "{{ paxctld_sig_url }}"
       dest: "{{ paxctld_download_directory }}/{{ paxctld_filename }}.sig"
 
+# Intentionally using the verbose two-arg format for `gpg --verify`.
+# The manpage stipulates that explicitly providing the detached signature
+# file, then the filename to be verified is the safest invocation.
 - name: Verify paxctld package GPG signature.
-  command: gpg --verify {{ paxctld_download_directory }}/{{ paxctld_filename }}.sig
+  command: >
+    gpg --verify
+    {{ paxctld_download_directory }}/{{ paxctld_filename }}.sig
+    {{ paxctld_download_directory }}/{{ paxctld_filename }}
   register: gpg_verify_result
   changed_when: false
 
