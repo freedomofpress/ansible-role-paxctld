@@ -25,6 +25,7 @@
     {{ paxctld_download_directory }}/{{ paxctld_filename }}.sig
     {{ paxctld_download_directory }}/{{ paxctld_filename }}
   register: gpg_verify_result
+  always_run: true
   changed_when: false
 
 # Write config file prior to installing package, so desired flags are set immediately.
