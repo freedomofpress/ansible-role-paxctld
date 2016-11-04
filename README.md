@@ -27,26 +27,14 @@ paxctld_gpg_keyserver: hkps.pool.sks-keyservers.net
 # including items you want to preserve. In particular consider retaining the python
 # config, as it's necessary for Ansible to run.
 paxctld_configs:
-  - binary: /usr/bin/python2.7
-    flags: m
-  - binary: /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java
-    flags: m
-  - binary: /usr/bin/nodejs
-    flags: m
-  - binary: /usr/bin/node
-    flags: m
-  - binary: /usr/sbin/asterisk
-    flags: m
-  - binary: /opt/kibana/node/bin/node
-    flags: m
-  - binary: /usr/bin/grub-script-check
-    flags: pm
-  - binary: /usr/bin/grub-bios-setup
-    flags: pm
-  - binary: /usr/sbin/grub-mkdevicemap
-    flags: pm
-  - binary: /usr/sbin/grub-probe
-    flags: pm
+  /usr/bin/grub-bios-setup: mp
+  /usr/bin/grub-script-check: mp
+  /usr/bin/node: m
+  /usr/bin/nodejs: m
+  /usr/bin/python2.7: m
+  /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java: m
+  /usr/sbin/grub-mkdevicemap: mp
+  /usr/sbin/grub-probe: mp
 ```
 
 Dependencies
