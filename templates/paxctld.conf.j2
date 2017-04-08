@@ -1,3 +1,3 @@
-{% for binary, flags in paxctld_configs|dictsort %}
+{% for binary, flags in (paxctld_configs_dist|combine(paxctld_configs))|dictsort %}
 {{ binary }}   {{ flags }}
 {% endfor %}
