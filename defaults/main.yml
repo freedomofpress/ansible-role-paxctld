@@ -1,6 +1,6 @@
 ---
 paxctld_download_directory: /usr/local/src
-paxctld_version: "1.2.1-1"
+paxctld_version: "1.2.2-1"
 paxctld_filename: "paxctld_{{ paxctld_version }}_amd64.deb"
 paxctld_deb_url: "https://grsecurity.net/paxctld/{{ paxctld_filename }}"
 paxctld_sig_url: "https://grsecurity.net/paxctld/{{ paxctld_filename }}.sig"
