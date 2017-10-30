@@ -4,7 +4,6 @@ paxctld_version: "1.2.2-1"
 paxctld_filename: "paxctld_{{ paxctld_version }}_amd64.deb"
 paxctld_deb_url: "https://grsecurity.net/paxctld/{{ paxctld_filename }}"
 paxctld_sig_url: "https://grsecurity.net/paxctld/{{ paxctld_filename }}.sig"
-paxctld_gpg_keyserver: hkps.pool.sks-keyservers.net
 
 # Custom PaX flags to set. Format is dict with keys as binary path and value
 # the flags to be set. Flags should be a single string. This var is intended
