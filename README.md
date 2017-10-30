@@ -110,6 +110,14 @@ paxctld_configs_dist:
   /usr/lib/jvm/java-6-openjdk/jre/bin/java: m
   /usr/lib/jvm/java-8-openjdk/jre/bin/java: m
   /lib/rc/bin/lsb2rcconf: E
+
+paxctld_spengler_gpg: |
+  -----BEGIN PGP PUBLIC KEY BLOCK-----
+  Version: GnuPG v1.4.12 (GNU/Linux)
+
+  [...]
+
+  -----END PGP PUBLIC KEY BLOCK-----
 ```
 
 Dependencies
