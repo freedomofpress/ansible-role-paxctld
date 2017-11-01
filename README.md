@@ -110,13 +110,9 @@ paxctld_configs_dist:
   /usr/lib/jvm/java-8-openjdk/jre/bin/java: m
   /lib/rc/bin/lsb2rcconf: E
 
-paxctld_spengler_gpg: |
-  -----BEGIN PGP PUBLIC KEY BLOCK-----
-  Version: GnuPG v1.4.12 (GNU/Linux)
-
-  [...]
-
-  -----END PGP PUBLIC KEY BLOCK-----
+# ASCII-armored GPG public key for Bradley Spengler (spender), grsecurity maintainer.
+# Used for verifying package integrity on downloaded deb package.
+paxctld_gpg_pubkey_content: "{{ lookup('file', 'spender-gpg-key.asc') }}"
 ```
 
 Dependencies

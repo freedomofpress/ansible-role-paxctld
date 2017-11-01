@@ -1,6 +1,8 @@
 ---
 - name: Import Bradley Spengler GPG key (grsecurity maintainer) key
-  shell: echo "{{paxctld_spengler_gpg|b64encode}}" | base64 -d | gpg --import
+  shell: gpg --import - <<< "{{ paxctld_gpg_pubkey_content|escape }}"
+  args:
+    executable: /bin/bash
   register: gpg_import_spender_result
   changed_when: "'imported: 1' in gpg_import_spender_result.stderr"
 
