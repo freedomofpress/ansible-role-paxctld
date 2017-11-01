@@ -21,7 +21,6 @@ paxctld_version: "1.2.2-1"
 paxctld_filename: "paxctld_{{ paxctld_version }}_amd64.deb"
 paxctld_deb_url: "https://grsecurity.net/paxctld/{{ paxctld_filename }}"
 paxctld_sig_url: "https://grsecurity.net/paxctld/{{ paxctld_filename }}.sig"
-paxctld_gpg_keyserver: hkps.pool.sks-keyservers.net
 
 # Custom PaX flags to set. Format is dict with keys as binary path and value
 # the flags to be set. Flags should be a single string. This var is intended
@@ -110,6 +109,10 @@ paxctld_configs_dist:
   /usr/lib/jvm/java-6-openjdk/jre/bin/java: m
   /usr/lib/jvm/java-8-openjdk/jre/bin/java: m
   /lib/rc/bin/lsb2rcconf: E
+
+# ASCII-armored GPG public key for Bradley Spengler (spender), grsecurity maintainer.
+# Used for verifying package integrity on downloaded deb package.
+paxctld_gpg_pubkey_content: "{{ lookup('file', 'spender-gpg-key.asc') }}"
 ```
 
 Dependencies
